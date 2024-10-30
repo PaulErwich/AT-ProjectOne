@@ -3,14 +3,19 @@ using Vuforia;
 
 public class BoxScript : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
 
     ObserverBehaviour observerBehaviour;
+    public bool Enable;
+
+    public GameObject arrow;
+    public float length;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
+        arrow = transform.Find("Arrow").gameObject;
     }
     private void Awake()
     {
@@ -23,7 +28,7 @@ public class BoxScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Enable = animator.GetBool("Enabled");
     }
     private void OnMouseDown()
     {
@@ -34,5 +39,16 @@ public class BoxScript : MonoBehaviour
     {
         bool enabled = animator.GetBool("Enabled");
         animator.SetBool("Enabled", !enabled);
+
+        arrow.SetActive(enabled);
+    }
+
+    public void ShowArrow()
+    {
+        arrow.SetActive(true);
+    }
+    public void HideArrow()
+    {
+        arrow.SetActive(false);
     }
 }
