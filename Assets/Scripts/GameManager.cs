@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject textBox;
     public Button showArea;
+    public Button showVolume;
 
     public static GameManager instance;
 
@@ -18,8 +19,6 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(this.gameObject);
-
-
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,8 +28,10 @@ public class GameManager : MonoBehaviour
         textBox = GameObject.Find("Panel").gameObject;
         textBox.SetActive(false);
         showArea = GameObject.Find("ShowArea").gameObject.GetComponent<Button>();
+        showVolume = GameObject.Find("ShowVolume").gameObject.GetComponent<Button>();
 
-        showArea.onClick.AddListener(ToggleAreaCalculation);
+        showArea.onClick.AddListener(() => ToggleTextBox(true));
+        showVolume.onClick.AddListener(() => ToggleTextBox(false));
     }
 
     // Update is called once per frame
@@ -39,9 +40,9 @@ public class GameManager : MonoBehaviour
         //showArea.GetComponent<Button>().onClick.AddListener(ToggleAreaCalculation);
     }
 
-    void ToggleAreaCalculation()
+    void ToggleTextBox(bool b)
     {
-        //selectedShape.GetComponent<BoxScript>().ShowArrow();
         textBox.SetActive(!textBox.activeInHierarchy);
+        TextBoxManager.instance.ToggleTextInBox(b);
     }
 }

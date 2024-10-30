@@ -11,6 +11,8 @@ public class Shape : MonoBehaviour
     void Start()
     {
         info.areaCalculation += $"\nIn this case that would be {info.lengths[0].value} x {info.lengths[1].value} = {info.lengths[0].value * info.lengths[1].value}";
+        info.volumeCalculation += $"\nIn this case that would be {info.lengths[0].value} x " +
+            $"{info.lengths[1].value} x {info.lengths[2].value} = {info.lengths[0].value * info.lengths[1].value * info.lengths[2].value}.";
     }
 
     // Update is called once per frame
