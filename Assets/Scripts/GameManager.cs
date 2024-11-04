@@ -25,24 +25,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ARShapes = GameObject.FindGameObjectsWithTag("ARShape");
-        textBox = GameObject.Find("Panel").gameObject;
-        textBox.SetActive(false);
+        textBox = GameObject.Find("InfoPanel").gameObject;
+        //textBox.SetActive(false);
         showArea = GameObject.Find("ShowArea").gameObject.GetComponent<Button>();
         showVolume = GameObject.Find("ShowVolume").gameObject.GetComponent<Button>();
-
-        showArea.onClick.AddListener(() => ToggleTextBox(true));
-        showVolume.onClick.AddListener(() => ToggleTextBox(false));
     }
 
     // Update is called once per frame
     void Update()
     {
         //showArea.GetComponent<Button>().onClick.AddListener(ToggleAreaCalculation);
-    }
-
-    void ToggleTextBox(bool b)
-    {
-        textBox.SetActive(!textBox.activeInHierarchy);
-        TextBoxManager.instance.ToggleTextInBox(b);
     }
 }
