@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TextBoxManager : MonoBehaviour
 {
-    public GameObject selectedShape;
+    public GameObject trackedShape;
     public GameObject boxHeader;
     public GameObject boxBody;
     private TextMeshProUGUI textBody;
@@ -27,7 +27,7 @@ public class TextBoxManager : MonoBehaviour
             Destroy(this.gameObject);
 
         //textBox = GameObject.findchi     GetComponentInChildren<TextMeshProUGUI>();
-        selectedShape = GameManager.instance.selectedShape;
+        trackedShape = GameManager.instance.trackedShape;
         animator = this.GetComponent<Animator>();
 
         boxHeader.SetActive(false);
@@ -37,17 +37,10 @@ public class TextBoxManager : MonoBehaviour
         textBody = boxBody.GetComponent<TextMeshProUGUI>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void UpdateTrackedObject(GameObject _obj)
     {
-        //areaDescriptions.Add(ShapeType.Cube, "The area of a cube is calculated by Width x Height.");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //float length = selectedShape.GetComponent<BoxScript>().length;
-        //textBox.text = selectedShape.GetComponent<Shape>().info.areaCalculation;
+        trackedShape = _obj;
+        ToggleTextInBox(currentType);
     }
 
     public void ToggleTextInBox(InfoType type)
@@ -58,11 +51,15 @@ public class TextBoxManager : MonoBehaviour
         {
             case InfoType.area:
                 textHeader.text = "Area";
-                textBody.text = selectedShape.GetComponent<Shape>().info.areaCalculation;
+                textBody.text = trackedShape.GetComponent<Shape>().info.areaCalculation;
+                break;
+            case InfoType.surfaceArea:
+                textHeader.text = "Surface Area";
+                textBody.text = trackedShape.GetComponent<Shape>().info.surfaceAreaCalculation;
                 break;
             case InfoType.volume:
                 textHeader.text = "Volume";
-                textBody.text = selectedShape.GetComponent<Shape>().info.volumeCalculation;
+                textBody.text = trackedShape.GetComponent<Shape>().info.volumeCalculation;
                 break;
             default:
                 textHeader.text = "Invalid Info";
@@ -122,6 +119,7 @@ public enum InfoType
 {
     none,
     area,
+    surfaceArea,
     volume
 }
 

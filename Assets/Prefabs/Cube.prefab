@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 120984943832966992}
   - component: {fileID: 6905574889873775597}
-  - component: {fileID: 6503682253645444988}
+  - component: {fileID: 7155428135380440077}
   m_Layer: 0
   m_Name: Cube
   m_TagString: ARShape
@@ -51,7 +51,7 @@ MonoBehaviour:
   Enable: 0
   arrow: {fileID: 0}
   length: 5
---- !u!114 &6503682253645444988
+--- !u!114 &7155428135380440077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,20 +60,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8402531657770562895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e5ba79b12002c94787064644c0f7680, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ab24769091b3de42bccdec1bf4aac85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   info:
     type: 0
-    areaCalculation: 'The area of a cube is calculated by Width x Height. '
-    volumeCalculation: The Volume of a cube is calculated by Width x Height x Depth.
+    areaCalculation: 
+    surfaceAreaCalculation: 
+    volumeCalculation: 
     lengths:
     - type: 0
-      value: 5
+      value: 10
     - type: 1
-      value: 5
+      value: 10
     - type: 2
-      value: 5
+      value: 10
 --- !u!1001 &1270770112690860243
 PrefabInstance:
   m_ObjectHideFlags: 0

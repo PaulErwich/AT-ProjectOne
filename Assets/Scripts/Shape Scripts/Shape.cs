@@ -27,24 +27,36 @@ public class ShapeInfo
 {
     public ShapeType type;
     public string areaCalculation;
+    public string surfaceAreaCalculation;
     public string volumeCalculation;
     public List<LengthPair> lengths = new List<LengthPair>();
 }
 public enum ShapeType
 {
     Cube,
+    Cuboid,
     Sphere,
+    Cylinder,
+    SquareBasePyramid,
 }
 
 public enum LengthType
 {
     width,
     height,
-    depth
+    depth,
+    radius,
+    diameter
 }
 [Serializable]
 public struct LengthPair
 {
+    public LengthPair(LengthType _type, float _value)
+    {
+        type = _type;
+        value = _value;
+    }
+
     public LengthType type;
     public float value;
 }

@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject[] ARShapes;
-    public GameObject selectedShape;
+    public GameObject trackedShape;
 
     public GameObject textBox;
     public Button showArea;
@@ -35,5 +35,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //showArea.GetComponent<Button>().onClick.AddListener(ToggleAreaCalculation);
+    }
+
+    public void UpdateTrackedObject(GameObject _obj)
+    {
+        trackedShape = _obj;
+        UIManager.instance.UpdateTrackedObject(_obj);
+        TextBoxManager.instance.trackedShape = _obj;
     }
 }
