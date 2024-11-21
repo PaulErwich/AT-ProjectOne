@@ -15,12 +15,6 @@ public class Circle : TwoDShape
         info.perimeterCalculation = $"\n\nIn this case that's 2 x \u03C0 x {info.lengths[0].value} = {GetPerimeter()}cm^2.";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override float GetArea()
     {
         return Mathf.Pow(info.lengths[0].value, 2) * Mathf.PI;
