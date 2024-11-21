@@ -51,15 +51,19 @@ public class TextBoxManager : MonoBehaviour
         {
             case InfoType.area:
                 textHeader.text = "Area";
-                textBody.text = trackedShape.GetComponent<Shape>().info.areaCalculation;
+                textBody.text = trackedShape.GetComponentInChildren<TwoDShape>().info.areaCalculation;
+                break;
+            case InfoType.perimeter:
+                textHeader.text = "Perimeter";
+                textBody.text = trackedShape.GetComponentInChildren<TwoDShape>().info.perimeterCalculation;
                 break;
             case InfoType.surfaceArea:
                 textHeader.text = "Surface Area";
-                textBody.text = trackedShape.GetComponent<Shape>().info.surfaceAreaCalculation;
+                textBody.text = trackedShape.GetComponentInChildren<Shape>().info.surfaceAreaCalculation;
                 break;
             case InfoType.volume:
                 textHeader.text = "Volume";
-                textBody.text = trackedShape.GetComponent<Shape>().info.volumeCalculation;
+                textBody.text = trackedShape.GetComponentInChildren<Shape>().info.volumeCalculation;
                 break;
             default:
                 textHeader.text = "Invalid Info";
@@ -119,6 +123,7 @@ public enum InfoType
 {
     none,
     area,
+    perimeter,
     surfaceArea,
     volume
 }

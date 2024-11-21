@@ -20,6 +20,21 @@ public class Shape : MonoBehaviour
     {
         
     }
+
+    public virtual float GetSurfaceArea()
+    {
+        return info.lengths[0].value * info.lengths[0].value * 6;
+    }
+
+    public virtual float GetVolume()
+    {
+        return info.lengths[0].value * info.lengths[1].value * info.lengths[2].value;
+    }
+
+    private void OnMouseDown()
+    {
+        GameManager.instance.UpdateTrackedObject(this.gameObject.transform.parent.gameObject);
+    }
 }
 
 [Serializable]

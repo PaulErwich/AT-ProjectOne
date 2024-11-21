@@ -1,15 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
 
-    public GameObject[] ARShapes;
+    public List<GameObject> ARShapes;
     public GameObject trackedShape;
 
-    public GameObject textBox;
-    public Button showArea;
-    public Button showVolume;
+    public GameObject ARCamera;
 
     public static GameManager instance;
 
@@ -24,11 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ARShapes = GameObject.FindGameObjectsWithTag("ARShape");
-        textBox = GameObject.Find("InfoPanel").gameObject;
-        //textBox.SetActive(false);
-        showArea = GameObject.Find("ShowArea").gameObject.GetComponent<Button>();
-        showVolume = GameObject.Find("ShowVolume").gameObject.GetComponent<Button>();
+        ARShapes = new List<GameObject>(GameObject.FindGameObjectsWithTag("ARShape"));
     }
 
     // Update is called once per frame
@@ -42,5 +37,10 @@ public class GameManager : MonoBehaviour
         trackedShape = _obj;
         UIManager.instance.UpdateTrackedObject(_obj);
         TextBoxManager.instance.trackedShape = _obj;
+    }
+
+    public void ToggleObjectDimension()
+    {
+        trackedShape.GetComponent<ShapeManager>().ToggleMode();
     }
 }

@@ -14,8 +14,8 @@ public class BoxScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
-        arrow = transform.Find("Arrow").gameObject;
+        animator = GetComponent<Animator>();
+        //arrow = transform.Find("Arrow").gameObject;
     }
     private void Awake()
     {
