@@ -10,7 +10,7 @@ public class Shape : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        info.areaCalculation += $"\nIn this case that would be {info.lengths[0].value} x {info.lengths[1].value} = {info.lengths[0].value * info.lengths[1].value}";
+        //info.areaCalculation += $"\nIn this case that would be {info.lengths[0].value} x {info.lengths[1].value} = {info.lengths[0].value * info.lengths[1].value}";
         info.volumeCalculation += $"\nIn this case that would be {info.lengths[0].value} x " +
             $"{info.lengths[1].value} x {info.lengths[2].value} = {info.lengths[0].value * info.lengths[1].value * info.lengths[2].value}.";
     }
@@ -20,7 +20,7 @@ public class Shape : MonoBehaviour
     {
         
     }
-
+    
     public virtual float GetSurfaceArea()
     {
         return info.lengths[0].value * info.lengths[0].value * 6;
@@ -41,7 +41,6 @@ public class Shape : MonoBehaviour
 public class ShapeInfo
 {
     public ShapeType type;
-    public string areaCalculation;
     public string surfaceAreaCalculation;
     public string volumeCalculation;
     public List<LengthPair> lengths = new List<LengthPair>();

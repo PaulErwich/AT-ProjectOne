@@ -10,8 +10,8 @@ public class Cube : Shape
         info.lengths.Add(new LengthPair(LengthType.depth, 10));
 
         // Face area calculation is done by Width x Height
-        info.areaCalculation = "The area of the face of a cube is Width x Height.";
-        info.areaCalculation += $"\n\nIn this case that would be {info.lengths[0].value} x {info.lengths[1].value} = {info.lengths[0].value * info.lengths[1].value}cm^2";
+       /* info.areaCalculation = "The area of the face of a cube is Width x Height.";
+        info.areaCalculation += $"\n\nIn this case that would be {info.lengths[0].value} x {info.lengths[1].value} = {info.lengths[0].value * info.lengths[1].value}cm^2";*/
 
         // Surface area calculation is done by Width x Height x 6 as Cube has 6 faces
         info.surfaceAreaCalculation = "The surface area of a cube is Width x Height x 6. This is because a cube has 6 identical faces";

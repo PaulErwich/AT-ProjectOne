@@ -9,9 +9,9 @@ public class Cylinder : Shape
         info.lengths.Add(new LengthPair(LengthType.radius, 5));
         info.lengths.Add(new LengthPair(LengthType.diameter, 10));
 
-        info.areaCalculation = "A cylinder has 2 faces. The area of them is calculated differently.";
+        /*info.areaCalculation = "A cylinder has 2 faces. The area of them is calculated differently.";
         info.areaCalculation += "\n\nThe circle is calculated by \u03C0 x Radius^2";
-        info.areaCalculation += "\n\nThe cylindrical face is calculated by 2 x \u03C0 x Radius x Height";
+        info.areaCalculation += "\n\nThe cylindrical face is calculated by 2 x \u03C0 x Radius x Height";*/
 
         info.surfaceAreaCalculation = "The surface area of a cylinder is 2 x \u03C0 x Radius x Height + 2 x \u03C0 x Radius^2.";
         info.surfaceAreaCalculation += $"\n\nIn this case it's 2 x \u03C0 x {info.lengths[1].value} x {info.lengths[0].value} + 2 x \u03C0 x {info.lengths[1].value}^2";

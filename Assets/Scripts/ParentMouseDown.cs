@@ -16,7 +16,7 @@ public class ParentMouseDown : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GetComponentInParent<BoxScript>().PlayBoxAnimation();
+        GetComponentInParent<ShapeAnimation>().PlayAnimation();
         Debug.Log("Clicked side");
     }
 }
